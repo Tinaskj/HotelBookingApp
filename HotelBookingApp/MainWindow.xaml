@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HotelBookingApp" xmlns:viewmodel="clr-namespace:HotelBookingApp.MVVM.ViewModel"
+        xmlns:local="clr-namespace:HotelBookingApp" 
+        xmlns:viewmodel="clr-namespace:HotelBookingApp.MVVM.ViewModel"
         mc:Ignorable="d"
-        Height="600" Width="1200" 
+        Height="1200" Width="1600" 
         WindowStyle="none"
         ResizeMode="NoResize"
         Background="transparent"
@@ -14,7 +15,7 @@
         <viewmodel:MainViewModel/>
     </Window.DataContext>
 
-    <Border Background="#FF082553"
+    <Border Background="#2e3137"
             CornerRadius="20"
             MouseDown="Border_MouseDown">
         <Grid>
@@ -26,21 +27,114 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Hotel" 
+            <StackPanel Orientation="Horizontal"
+                        Margin="10,0,0,0">
+                <Image Source="Images/hotel.png"
+                                   Width="40"
+                                   Height="40"
+                           Margin="8,0,8,0"
+                                   />
+                <Label Content="Hotel" 
                    FontSize="30" 
                    VerticalAlignment="Center" 
                    Margin="10,0,0,0"
                    Foreground="WhiteSmoke"/>
-            <ListView ItemsSource="{Binding NavItem}"
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        Grid.Row="1"
+                        Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal"
+                            Margin="10">
+                    <Image Source="Images/hotel.png"
+                                   Width="30"
+                                   Height="30"
+                           Margin="8,0,8,0"
+                                   />
+                    <Label Content="Booking" 
+                           Foreground="WhiteSmoke" 
+                           FontSize="15"
+                           FontWeight="Medium"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="10">
+                    <Image Source="Images/hotel.png"
+                                   Width="30"
+                                   Height="30"
+                           Margin="8,0,8,0"
+                                   />
+                    <Label Content="Guests" 
+                           Foreground="WhiteSmoke" 
+                           FontSize="15"
+                           FontWeight="Medium"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="10">
+                    <Image Source="Images/hotel.png"
+                                   Width="30"
+                                   Height="30"
+                           Margin="8,0,8,0"
+                                   />
+                    <Label Content="Rooms" 
+                           Foreground="WhiteSmoke" 
+                           FontSize="15"
+                           FontWeight="Medium"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="10">
+                    <Image Source="Images/hotel.png"
+                                   Width="30"
+                                   Height="30"
+                           Margin="8,0,8,0"
+                                   />
+                    <Label Content="Employee" 
+                           Foreground="WhiteSmoke" 
+                           FontSize="15"
+                           FontWeight="Medium"/>
+                </StackPanel>
+               
+            </StackPanel>
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"
+                            />
+            <!--<ListView 
+                ItemsSource="{Binding NavItems}"
+                Background="Transparent"
+                Grid.Row="1">
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="10,0,0,0">
+                    <Label Content="{Binding Title}"
+                                   Foreground="WhiteSmoke"/>
+                    <Image Source="{Binding ImageSource}"
+                                   Width="30"
+                                   Height="30"
+                                   />
+                </StackPanel>
+            </ListView>-->
+
+            <!--<ListView ItemsSource="{Binding NavItems}"
                       Background="Transparent"
                       BorderThickness="0"
-                      Grid.Row="1"
-                      ItemContainerStyle="{StaticResource MainNavItemsTheme}"
-                       />
+                      Grid.Row="1">
+                <ControlTemplate TargetType="ListViewItem">
+                    <StackPanel Orientation="Horizontal"
+                                    Margin="10,0,0,0">
+                        <Image Source="{Binding ImageSource}"
+                                   Width="30"
+                                   Height="30"
+                                   />
+
+                        <Label Content="{Binding Title}"
+                                   Foreground="WhiteSmoke"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </ListView>-->
 
 
         </Grid>
-        
+
     </Border>
 </Window>
 

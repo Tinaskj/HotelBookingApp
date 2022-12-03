@@ -12,7 +12,10 @@ namespace HotelBookingApp.MVVM.Model
         public string Title;
         public string ImageSource;
         public string Content;
-        public ObservableCollection<SubNavCollectionModel> NavItem;
+        public ObservableCollection<NavCollectionModel> BookingNavItems;
+        public ObservableCollection<NavCollectionModel> CheckInNavItems;
+        public ObservableCollection<NavCollectionModel> EmployeeNavItems;
+
 
         public NavCollectionModel(string title, string imageSource, string content)
         {
@@ -20,5 +23,11 @@ namespace HotelBookingApp.MVVM.Model
             ImageSource = imageSource;
             Content = content;
         }
+
+        public override string ToString()
+        {
+            return Title;
+        }
+
     }
 }
